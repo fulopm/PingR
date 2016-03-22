@@ -1,8 +1,14 @@
-# Mark Beviz 2015
+# Mark Beviz 2015
+
 use Net::Ping;
-system $^O eq 'MSWin32' ? 'cls' : 'clear';print "PingR - Mark Beviz 2015\n\n\n\n";sub GetFile()
+
+system $^O eq 'MSWin32' ? 'cls' : 'clear';
+
+print "PingR - Mark Beviz 2015\n\n\n\n";
+
+sub GetFile()
 {
-	print "Please, enter the file name! (It must be in the script's path): ";
+	print "Please, enter the file name! (It must be in the script's directory): ";
 
 	chomp($filename = <>);
 	open ($fc, '<', $filename)
@@ -16,15 +22,17 @@ use Net::Ping;
 	close $fh;
 }
 
-sub GetKeyword()
+
+sub GetKeyword()
 {
-	print "\nPlease give the keyword you want to search: ";
+	print "\nPlease give the keyword you want to search for: ";
 	chomp ($keyword = <>);
 	@result = grep { /$keyword/ } @lines
 		or print "\nCould not find any matches! " and PressKeyToExt();
 }
 
-sub PingThem()
+
+sub PingThem()
 {
 	$p = Net::Ping->new("icmp", 2);
 	print "\n";
@@ -36,10 +44,12 @@ use Net::Ping;
 		print "NOT " unless $p->ping($ip);
 		print "reachable.\n\n";
 	}
-	print "Scan Complete! ";
-	PressKeyToExt();}
+	print "Scan Completed! ";
+	PressKeyToExt();
+}
 
- GetFile();
+
+ GetFile();
  GetKeyword();
  PingThem();
 
