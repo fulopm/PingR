@@ -1,6 +1,6 @@
 # PingR
 
-PingR is a tool written in Perl. It reads URL-s from a file, and find which URL-s are aviable.
+PingR is a tool written in Perl. It reads URL-s from a file, and finds which URL-s are reachable.
 <br />
 <br />
 <br />
